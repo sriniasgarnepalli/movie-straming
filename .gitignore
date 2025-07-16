@@ -1,0 +1,13 @@
+# Node.js dependencies
+node_modules
+dist/
+.next/
+.env
+*.log
+*.DS_Store
+
+# VSCode
+.vscode/
+
+# Turborepo cache
+turbo/

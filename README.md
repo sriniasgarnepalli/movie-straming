@@ -6,33 +6,33 @@ Watch videos together with friends, with real-time synchronized playback, chat, 
 
 ## 1. 🔧 Features Overview
 
-| Feature | Status |
-|--------|--------|
-| Create / Join Rooms | ✅ Implemented |
-| Local Video File Streaming | ✅ Implemented |
-| Shared Playback Sync (Play/Pause/Seek) | ✅ Implemented |
-| Multi-user Rooms via Socket.IO | ✅ Implemented |
-| Realtime Room Presence | ✅ Implemented |
-| In-Room Text Chat | 🔜 Planned |
-| Webcam Overlay (WebRTC) | 🔜 Planned |
-| Authentication | 🔜 Planned |
-| Video Sharing (upload & broadcast) | 🔜 Planned |
-| Video Platform Integration (YouTube, Netflix, etc.) | 🔜 Planned |
+| Feature                                             | Status         |
+| --------------------------------------------------- | -------------- |
+| Create / Join Rooms                                 | ✅ Implemented |
+| Local Video File Streaming                          | ✅ Implemented |
+| Shared Playback Sync (Play/Pause/Seek)              | ✅ Implemented |
+| Multi-user Rooms via Socket.IO                      | ✅ Implemented |
+| Realtime Room Presence                              | ✅ Implemented |
+| In-Room Text Chat                                   | 🔜 Planned     |
+| Webcam Overlay (WebRTC)                             | 🔜 Planned     |
+| Authentication                                      | 🔜 Planned     |
+| Video Sharing (upload & broadcast)                  | 🔜 Planned     |
+| Video Platform Integration (YouTube, Netflix, etc.) | 🔜 Planned     |
 
 ---
 
 ## 2. 🧠 Tech Stack
 
-| Layer        | Stack |
-|--------------|-------|
-| **Frontend** | Next.js (App Router), React 19, Tailwind CSS, TypeScript |
-| **Backend**  | Node.js + Express + Socket.IO |
-| **Auth**     | JWT + Refresh Tokens (Planned with Auth.js) |
-| **WebSocket**| Socket.IO (room-based) |
-| **Media**    | HTML5 Video, WebRTC (planned) |
-| **Storage**  | Blob URLs (local), S3/Firebase (planned) |
-| **Monorepo** | Turborepo (apps & packages) |
-| **Dev Tools**| ESLint, Prettier, Husky, VSCode |
+| Layer         | Stack                                                    |
+| ------------- | -------------------------------------------------------- |
+| **Frontend**  | Next.js (App Router), React 19, Tailwind CSS, TypeScript |
+| **Backend**   | Node.js + Express + Socket.IO                            |
+| **Auth**      | JWT + Refresh Tokens (Planned with Auth.js)              |
+| **WebSocket** | Socket.IO (room-based)                                   |
+| **Media**     | HTML5 Video, WebRTC (planned)                            |
+| **Storage**   | Blob URLs (local), S3/Firebase (planned)                 |
+| **Monorepo**  | Turborepo (apps & packages)                              |
+| **Dev Tools** | ESLint, Prettier, Husky, VSCode                          |
 
 ---
 
@@ -57,30 +57,30 @@ movie-streaming-turbo/
 
 ## 4. ✅ Key Design Patterns
 
-| Pattern | Purpose |
-|--------|---------|
-| **SOLID** | Clean module separation, testability |
-| **Factory** | Room creation and socket channel setup |
-| **Observer** | Syncing UI updates from Socket.IO messages |
-| **Dependency Injection** | Planned for services (e.g., auth, video logic) |
-| **Separation of Concerns** | Web, sockets, and auth are in separate layers |
-| **Microservices-ready** | Frontend and backend deploy independently |
+| Pattern                    | Purpose                                        |
+| -------------------------- | ---------------------------------------------- |
+| **SOLID**                  | Clean module separation, testability           |
+| **Factory**                | Room creation and socket channel setup         |
+| **Observer**               | Syncing UI updates from Socket.IO messages     |
+| **Dependency Injection**   | Planned for services (e.g., auth, video logic) |
+| **Separation of Concerns** | Web, sockets, and auth are in separate layers  |
+| **Microservices-ready**    | Frontend and backend deploy independently      |
 
 ---
 
 ## 5. 🧪 MVP Milestones
 
-| Milestone | Status |
-|----------|--------|
-| Basic Room Setup | ✅ |
-| Local Video Playback | ✅ |
-| Playback Sync (play/pause/seek) | ✅ |
-| Socket.IO Room-based Events | ✅ |
-| Shared Video Sync | ⏳ Partial (URL/Blob limit) |
-| Chat UI | 🔜 |
-| Webcam Video (WebRTC) | 🔜 |
-| Auth System | 🔜 |
-| Cloud Video Hosting | 🔜 |
+| Milestone                       | Status                      |
+| ------------------------------- | --------------------------- |
+| Basic Room Setup                | ✅                          |
+| Local Video Playback            | ✅                          |
+| Playback Sync (play/pause/seek) | ✅                          |
+| Socket.IO Room-based Events     | ✅                          |
+| Shared Video Sync               | ⏳ Partial (URL/Blob limit) |
+| Chat UI                         | 🔜                          |
+| Webcam Video (WebRTC)           | 🔜                          |
+| Auth System                     | 🔜                          |
+| Cloud Video Hosting             | 🔜                          |
 
 ---
 
@@ -121,15 +121,18 @@ socket.on("playback", ({ roomId, action, currentTime }) => {
 ## 8. 📹 Video Sync Mechanism
 
 ### Current:
+
 - Local file upload creates a Blob URL (local-only)
 - Playback events broadcast to room
 - All users must load the same video manually
 
 ### Limitations:
+
 - Blob URLs are **not shareable**
 - Cross-user streaming requires **hosted URLs**
 
 ### Planned:
+
 - Upload API (Express or Firebase)
 - Shareable video URLs (public access)
 - Cloud or CDN delivery
@@ -138,23 +141,23 @@ socket.on("playback", ({ roomId, action, currentTime }) => {
 
 ## 9. 🔁 Sync Sources (Future)
 
-| Source | Status | Sync Method |
-|--------|--------|-------------|
-| Local Video Files | ✅ | HTML5 video + Socket.IO |
-| Hosted Files (S3, Firebase) | 🔜 | Shareable URLs |
-| YouTube / Hotstar (experimental) | 🔜 | YouTube API + timestamps |
-| Webcam Feed | 🔜 | WebRTC |
+| Source                           | Status | Sync Method              |
+| -------------------------------- | ------ | ------------------------ |
+| Local Video Files                | ✅     | HTML5 video + Socket.IO  |
+| Hosted Files (S3, Firebase)      | 🔜     | Shareable URLs           |
+| YouTube / Hotstar (experimental) | 🔜     | YouTube API + timestamps |
+| Webcam Feed                      | 🔜     | WebRTC                   |
 
 ---
 
 ## 10. 📦 Deployment Plan
 
-| Service | Use |
-|--------|-----|
-| **Frontend** | Vercel |
-| **Socket Server** | Render / Railway / Fly.io |
-| **Storage** | S3 or Firebase |
-| **Database** | PlanetScale / Supabase (if needed) |
+| Service           | Use                                |
+| ----------------- | ---------------------------------- |
+| **Frontend**      | Vercel                             |
+| **Socket Server** | Render / Railway / Fly.io          |
+| **Storage**       | S3 or Firebase                     |
+| **Database**      | PlanetScale / Supabase (if needed) |
 
 > Ensure Socket server supports WebSocket-only fallback for SSR compatibility
 
@@ -162,12 +165,12 @@ socket.on("playback", ({ roomId, action, currentTime }) => {
 
 ## 11. 🧪 Testing Strategy
 
-| Layer | Strategy |
-|------|----------|
-| Frontend | Vitest + React Testing Library (planned) |
-| WebSocket | Manual E2E with multiple tabs |
-| Auth | Postman + token validation |
-| CI/CD | GitHub Actions for lint/build/test (planned) |
+| Layer     | Strategy                                     |
+| --------- | -------------------------------------------- |
+| Frontend  | Vitest + React Testing Library (planned)     |
+| WebSocket | Manual E2E with multiple tabs                |
+| Auth      | Postman + token validation                   |
+| CI/CD     | GitHub Actions for lint/build/test (planned) |
 
 ---
 
@@ -175,7 +178,7 @@ socket.on("playback", ({ roomId, action, currentTime }) => {
 
 ```bash
 # Root
-git clone https://github.com/yourname/movie-streaming-turbo.git
+git clone https://github.com/sriniasgarnepalli/movie-straming
 cd movie-streaming-turbo
 npm install
 
@@ -204,4 +207,4 @@ MIT
 
 ## ✨ Author
 
-Built with ❤️ by [@yourname](https://github.com/yourname)
+Built with ❤️ by [@SrinivasGarnepalli](https://github.com/sriniasgarnepalli)

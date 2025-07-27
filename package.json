@@ -17,5 +17,9 @@
   },
   "devDependencies": {
     "turbo": "latest"
+  },
+  "dependencies": {
+    "react-player": "^3.3.1",
+    "react-youtube": "^10.1.0"
   }
 }

@@ -10,7 +10,7 @@ app.use(cors());
 
 const io = new Server(server, {
   cors: {
-    origin: "*", // Adjust for production
+    origin: "*", // Adjust in production
     methods: ["GET", "POST"]
   }
 });
@@ -20,6 +20,7 @@ io.on("connection", (socket) => {
 
   socket.on("join-room", (roomId) => {
     socket.join(roomId);
+    socket.to(roomId).emit("request-current-state");
     console.log(`🟢 ${socket.id} joined room ${roomId}`);
   });
 
@@ -32,12 +33,14 @@ io.on("connection", (socket) => {
     );
   });
 
-  socket.on("disconnect", () => {
-    console.log("❌ Client disconnected:", socket.id);
+  // ✅ Receive state from host and send to new joiner
+  socket.on("current-state", ({ roomId, ...data }) => {
+    socket.to(roomId).emit("current-state", data);
+    console.log(`📦 Sent current video state to room ${roomId}`);
   });
 
-  socket.on("video-selected", ({ roomId, url }) => {
-    socket.to(roomId).emit("video-selected", { url });
+  socket.on("disconnect", () => {
+    console.log("❌ Client disconnected:", socket.id);
   });
 });
 

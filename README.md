@@ -9,7 +9,7 @@ Watch videos together with friends, with real-time synchronized playback, chat, 
 | Feature                                             | Status         |
 | --------------------------------------------------- | -------------- |
 | Create / Join Rooms                                 | ✅ Implemented |
-| Local Video File Streaming                          | ✅ Implemented |
+| YouTube Video Streaming                             | ✅ Implemented |
 | Shared Playback Sync (Play/Pause/Seek)              | ✅ Implemented |
 | Multi-user Rooms via Socket.IO                      | ✅ Implemented |
 | Realtime Room Presence                              | ✅ Implemented |
@@ -73,7 +73,7 @@ movie-streaming-turbo/
 | Milestone                       | Status                      |
 | ------------------------------- | --------------------------- |
 | Basic Room Setup                | ✅                          |
-| Local Video Playback            | ✅                          |
+| Youtube Video Playback          | ✅                          |
 | Playback Sync (play/pause/seek) | ✅                          |
 | Socket.IO Room-based Events     | ✅                          |
 | Shared Video Sync               | ⏳ Partial (URL/Blob limit) |
